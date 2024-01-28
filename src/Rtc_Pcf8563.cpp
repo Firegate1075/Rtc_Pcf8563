@@ -129,9 +129,9 @@ void Rtc_Pcf8563::setTime(byte hour, byte minute, byte sec)
     Wire.beginTransmission(Rtcc_Addr); // Issue I2C start signal
     Wire.send(RTCC_SEC_ADDR); // send addr low byte, req'd
 
-    Wire.send(decToBcd(hour)); // set hour
-    Wire.send(decToBcd(minute)); // set minutes
     Wire.send(decToBcd(sec)); // set seconds
+    Wire.send(decToBcd(minute)); // set minutes
+    Wire.send(decToBcd(hour)); // set hour
 
     Wire.endTransmission();
 }
